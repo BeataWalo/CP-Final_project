@@ -10,5 +10,5 @@ There are 7 small classes: Customer, Movie, Row, Screening, ScreeningRoom, Seat,
 class Cinema with needed functions, class Main, where all functions can be run and 3 Exception classes.
 The application also uses 3 text files: 
 * "Customers.txt" with customers' data, 
-* "Movies.txt" with titles and genres of the movies
-* "Showings.txt" with list of current showings
+* "Movies.txt" with titles and genres of the movies,
+* "Showings.txt" with list of current showings.

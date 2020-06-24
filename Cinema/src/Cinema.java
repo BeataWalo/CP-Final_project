@@ -188,7 +188,7 @@ public class Cinema {
         }
         Customer cust1 = new Customer(firstName, lastName, age);
         Writer output;
-        output = new BufferedWriter(new FileWriter("Customers.txt", true));
+        output = new BufferedWriter(new FileWriter("data/Customers.txt", true));
         output.append("\n" + firstName + "-" + lastName + "-" + age);
         output.close();
         customerList.add(cust1);

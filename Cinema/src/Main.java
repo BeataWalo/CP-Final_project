@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
+    //assuming correct values
 
     public static void main(String[] args) throws IOException {
         Cinema myCinema = new Cinema();
@@ -15,16 +16,17 @@ public class Main {
         myCinema.newScreeningRoom("big");
 
         //then program imports movies, screenings and customers data from folders
-        myCinema.newMovie("Movies.txt");
-        myCinema.newScreening("Screenings.txt");
-        myCinema.newCustomer("Customers.txt");
+        myCinema.newMovie("data/Movies.txt");
+        myCinema.newScreening("data/Screenings.txt");
+        myCinema.newCustomer("data/Customers.txt");
 
 
         //BUYING OR BOOKING A TICKET
         try {
-            //firstly the customers should choose the screening so they can find its number by title or by day:
+            //firstly the customers should choose the screening so they can find its number by title
             myCinema.showScreeningsOfMovie("La la land");
-            myCinema.showScreeningsByDay("Monday");
+            //or by day
+            //myCinema.showScreeningsByDay("Monday");
 
             Scanner scan = new Scanner(System.in);
 
@@ -53,10 +55,11 @@ public class Main {
             Customer cust = myCinema.findCustByName(firstName, lastName, age);
             Ticket t1 = new Ticket(showingNumber, cust);
 
-            //and the customer buys or books the ticket
             try {
+                //and the customer buys or books the ticket
                 myCinema.buyTicket(t1, rowNumber, seatNumber );
-                myCinema.bookTicket(t1, rowNumber, seatNumber);
+                //or books the ticket
+                //myCinema.bookTicket(t1, rowNumber, seatNumber);
             } catch (NoAvailableSeatException e) {
                 System.out.println("ERROR" + e);
             }
@@ -64,8 +67,9 @@ public class Main {
             //we can see, if the seat changed its status:
             myCinema.findSRbyNumber(theCHNumber).showScreeningRoom();
 
-        } catch (NoScreeningException e) {
+        } catch (Exception e) {
             System.out.println("ERROR: " + e);
+            return;
         }
 
         //customer can also find films of a certain genre
